@@ -1,16 +1,17 @@
-import './List.css';
+import { type } from "os";
+import { Item } from "../../types/item";
+import { text } from "stream/consumers";
 
-export type ListProps = {
-    title: string;
-    list: List[];
+
+type itemsList = {
+    items: Item[];
 };
 
-export interface List {
-    text: string;
+export function ShowItems(props: itemsList) {
+    return (
+        <div className="main-list-container{">
+            {props.items.map((item) =>
+            <li>{item.text}</li>)}
+        </div>
+    );
 };
-
-export const ListContainer = (props: ListProps) =>
-    <div className="main-list-container">
-        <div className="Title">{props.title}</div>
-        <input className="Input"></input>
-    </div>;
